@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guess the Number Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    input, button {
+      font-size: 18px;
+      padding: 8px 12px;
+      margin-top: 10px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guess the number between 1 and 100</h1>
+  <input type="number" id="guessInput" placeholder="Enter your guess" />
+  <br>
+  <button onclick="checkGuess()">Guess</button>
+  <p id="result"></p>
+
+  <script>
+    const target = 64;
+
+    function checkGuess() {
+      const guess = parseInt(document.getElementById("guessInput").value);
+      const result = document.getElementById("result");
+
+      if (isNaN(guess)) {
+        result.textContent = "Please enter a valid number!";
+        return;
+      }
+
+      if (guess < target) {
+        result.textContent = "Too low! Try again.";
+      } else if (guess > target) {
+        result.textContent = "Too high! Try again.";
+      } else {
+        result.textContent = "You guessed it correct!";
+      }
+    }
+  </script>
+</body>
+</html>
